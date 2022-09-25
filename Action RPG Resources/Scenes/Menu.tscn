@@ -1,0 +1,135 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Action RPG Resources/Scenes/MEGAMAN10.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Action RPG Resources/Scenes/Menu.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Action RPG Resources/Scenes/Menu.gd" type="Script" id=3]
+[ext_resource path="res://Action RPG Resources/World/background_dirt.png" type="Texture" id=5]
+[ext_resource path="res://Action RPG Resources/World/Bush_Yellow.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Action RPG Resources/World/Tree.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Action RPG Resources/World/Tree_Orange.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Action RPG Resources/World/Bush.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Music/Event Music 2.ogg" type="AudioStream" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 1 )
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -129, -31 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 322.0
+margin_bottom = 181.0
+color = Color( 0.352941, 0.733333, 0.498039, 0.784314 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background_dirt3" type="Sprite" parent="."]
+visible = false
+position = Vector2( 166.25, 132 )
+scale = Vector2( 0.255078, 0.261111 )
+texture = ExtResource( 5 )
+
+[node name="Tree" parent="background_dirt3" instance=ExtResource( 7 )]
+visible = false
+position = Vector2( -192.098, -145.532 )
+
+[node name="Tree3" parent="background_dirt3" instance=ExtResource( 8 )]
+visible = false
+position = Vector2( -188.178, -45.9575 )
+
+[node name="Tree4" parent="background_dirt3" instance=ExtResource( 8 )]
+visible = false
+position = Vector2( 121.531, -45.9574 )
+
+[node name="Tree2" parent="background_dirt3" instance=ExtResource( 7 )]
+visible = false
+position = Vector2( 121.531, -145.532 )
+
+[node name="Bush" parent="background_dirt3" instance=ExtResource( 6 )]
+visible = false
+position = Vector2( -156.815, 49.7872 )
+
+[node name="Bush2" parent="background_dirt3" instance=ExtResource( 9 )]
+visible = false
+position = Vector2( -188.178, 49.7872 )
+
+[node name="Bush3" parent="background_dirt3" instance=ExtResource( 6 )]
+visible = false
+position = Vector2( 121.531, 49.7872 )
+
+[node name="Bush4" parent="background_dirt3" instance=ExtResource( 9 )]
+visible = false
+position = Vector2( 90.1685, 49.7872 )
+
+[node name="Label" type="Label" parent="."]
+anchor_top = 0.314
+anchor_bottom = 0.314
+margin_top = -30.5
+margin_right = 325.0
+margin_bottom = 30.5
+custom_fonts/font = SubResource( 1 )
+text = "RPG 
+JUAN LUIS MORENO ESC."
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxBotones" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.873
+anchor_right = 0.5
+anchor_bottom = 0.88
+margin_left = -50.0
+margin_top = -77.0
+margin_right = 50.0
+custom_constants/separation = 11
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PLAY" type="Button" parent="VBoxBotones"]
+margin_right = 100.0
+margin_bottom = 17.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color_hover = Color( 0, 0.686275, 0.137255, 1 )
+custom_colors/font_color_pressed = Color( 0.211765, 0.00392157, 0.00392157, 1 )
+text = "PLAY"
+
+[node name="CONTINUE" type="Button" parent="VBoxBotones"]
+margin_top = 28.0
+margin_right = 100.0
+margin_bottom = 45.0
+custom_fonts/font = SubResource( 2 )
+disabled = true
+text = "CONTINUE"
+
+[node name="EXIT" type="Button" parent="VBoxBotones"]
+margin_top = 56.0
+margin_right = 100.0
+margin_bottom = 73.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color_hover = Color( 0, 0.686275, 0.137255, 1 )
+custom_colors/font_color_pressed = Color( 0.231373, 0.027451, 0.027451, 1 )
+text = "EXIT"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -21.072
+autoplay = true
+[connection signal="pressed" from="VBoxBotones/PLAY" to="." method="_on_PLAY_pressed"]
+[connection signal="pressed" from="VBoxBotones/EXIT" to="." method="_on_EXIT_pressed"]

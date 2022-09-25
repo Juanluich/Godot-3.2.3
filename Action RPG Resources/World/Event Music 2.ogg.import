@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Event Music 2.ogg-fd7b6f9bf30b6f4a514fccb9048a3577.oggstr"
+
+[deps]
+
+source_file="res://Action RPG Resources/World/Event Music 2.ogg"
+dest_files=[ "res://.import/Event Music 2.ogg-fd7b6f9bf30b6f4a514fccb9048a3577.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
